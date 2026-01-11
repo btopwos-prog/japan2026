@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 京阪神自由行全攻略</title>
+    <style>
+        :root { --primary: #2c3e50; --secondary: #e74c3c; --accent: #3498db; --bg: #f4f7f6; --law-bg: #fff8e1; }
+        body { font-family: "PingFang TC", "Microsoft JhengHei", sans-serif; margin: 0; background: var(--bg); color: #333; line-height: 1.6; }
+        header { background: var(--primary); color: white; text-align: center; padding: 20px 10px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .nav-scroll { display: flex; overflow-x: auto; background: white; padding: 10px; gap: 8px; border-bottom: 2px solid #ddd; position: sticky; top: 82px; z-index: 999; }
+        .nav-btn { white-space: nowrap; padding: 10px 18px; border: none; background: #eee; border-radius: 20px; cursor: pointer; font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
+        .nav-btn.active { background: var(--secondary); color: white; }
+        .container { padding: 15px; max-width: 700px; margin: 0 auto; padding-bottom: 50px; }
+        .tab-content { display: none; animation: fadeIn 0.4s; }
+        .tab-content.active { display: block; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        .card { background: white; border-radius: 12px; padding: 18px; margin-bottom: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-left: 6px solid var(--primary); }
+        .law-card { background: var(--law-bg); border-left: 6px solid #f1c40f; }
+        .highlight-box { background: #e3f2fd; border: 1px solid #bbdefb; padding: 12px; border-radius: 8px; font-size: 0.9rem; margin-bottom: 15px; color: #1565c0; }
+        .timeline-item { position: relative; padding-left: 25px; margin-bottom: 20px; border-left: 2px solid #ddd; }
+        .timeline-item::before { content: ""; position: absolute; left: -8px; top: 5px; width: 14px; height: 14px; background: var(--accent); border-radius: 50%; }
+        .tag { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; margin: 4px 2px; border: 1px solid transparent; }
+        .tag-kkday { background: #ffefd5; color: #e67e22; border-color: #e67e22; }
+        .tag-icoca { background: #e0f2f1; color: #00897b; border-color: #00897b; }
+        .tag-cash { background: #f3e5f5; color: #8e24aa; border-color: #8e24aa; }
+        .price { color: var(--secondary); font-weight: bold; }
+        ul { padding-left: 20px; margin: 5px 0; }
+        li { margin-bottom: 8px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <div style="font-size: 0.8rem; opacity: 0.9;">2026 京阪神攻略：59478 專屬簡報</div>
+    <h2 style="margin: 5px 0;">互動式六天五夜行程表</h2>
+</header>
+
+<div class="nav-scroll" id="navBar">
+    <button class="nav-btn active" onclick="showTab(event, 'airport')">✈️ 機場/入境須知</button>
+    <button class="nav-btn" onclick="showTab(event, 'tickets')">🎫 票券與儲值</button>
+    <button class="nav-btn" onclick="showTab(event, 'day1')">D1 京都</button>
+    <button class="nav-btn" onclick="showTab(event, 'day2')">D2 清水/伏見</button>
+    <button class="nav-btn" onclick="showTab(event, 'day3')">D3 嵐山/移動</button>
+    <button class="nav-btn" onclick="showTab(event, 'day4')">D4 神戶</button>
+    <button class="nav-btn" onclick="showTab(event, 'day5')">D5 大阪/展望台</button>
+    <button class="nav-btn" onclick="showTab(event, 'day6')">D6 採買/回程</button>
+</div>
+
+<div class="container">
+
+    <div id="airport" class="tab-content active">
+        <div class="card law-card">
+            <h3>🔋 1. 行動電源與電池 (最嚴格)</h3>
+            <ul>
+                <li><strong>禁止托運：</strong>必須隨身攜帶，嚴禁放入托運行李。</li>
+                <li><strong>置放規定：</strong>2025新制，不可放頭頂置物櫃，須全程置於視線範圍內(如前方口袋)。</li>
+                <li><strong>容量標示：</strong>必須有清晰 Wh/mAh 標示，否則會被沒收。</li>
+                <li><strong>容量限制：</strong>100Wh(約2萬mAh)以下可帶多顆；100-160Wh限帶2顆；超過160Wh禁止攜帶。</li>
+                <li><strong>充電禁令：</strong>台灣 6 家航空公司(華航/長榮/星宇/虎航等)航程中<strong>全面禁用</strong>行動電源充電。</li>
+            </ul>
+        </div>
+        <div class="card law-card">
+            <h3>🎒 2. 手提與托運行李限制</h3>
+            <ul>
+                <li><strong>液體限制：</strong>手提單瓶 <100ml，需裝入1公升透明夾鏈袋(每人一袋)。托運單瓶 <500ml，總量 <2公升。</li>
+                <li><strong>電捲棒：</strong>電池不可拆卸型「禁止攜帶及托運」。僅限電池可拆卸型。</li>
+                <li><strong>打火機：</strong>每人限帶1個隨身(藍焰防風型禁止)。</li>
+            </ul>
+        </div>
+        <div class="card law-card">
+            <h3>🛂 3. 入境日本與回台規範</h3>
+            <ul>
+                <li><strong>通關：</strong>建議事先填寫 <strong>Visit Japan Web</strong> 申報。</li>
+                <li><strong>藥品限制：</strong>非處方藥每種限12瓶，總計上限36瓶。</li>
+                <li><strong>電子菸：</strong>台灣<strong>完全禁止</strong>攜帶電子菸(含加熱菸)入境，違者重罰。</li>
+                <li><strong>禁帶食物：</strong>含肉成分(肉乾、肉塊泡麵)、新鮮水果嚴禁帶入日、台。</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h3>👗 四季穿搭建議</h3>
+            <ul>
+                <li><strong>春/秋：</strong>早晚溫差大，長袖襯衫 + 薄外套/毛衣。秋季需好走的運動鞋。</li>
+                <li><strong>夏季：</strong>高溫透氣為主，必備防曬乳與遮陽帽。</li>
+                <li><strong>冬季：</strong>保暖外套 + 毛衣 + 圍巾手套。</li>
+            </ul>
+        </div>
+    </div>
+
+    <div id="tickets" class="tab-content">
+        <div class="card">
+            <h3>💳 ICOCA 儲值與購買</h3>
+            <p><strong>購買：</strong>機場 JR 站「藍色機器」或 iPhone Apple Wallet 直接加卡。</p>
+            <p><strong>儲值：</strong>超商櫃台、車站精算機。說「Charge (恰吉)」即可現金儲值。</p>
+        </div>
+        <div class="card">
+            <h3>📱 KKday 網購流程</h3>
+            <p><strong>1. App 下單：</strong>取得電子 QR Code。</p>
+            <p><strong>2. 兌換交通：</strong>機場綠色機器「掃護照+掃碼」領實體票。</p>
+            <p><strong>3. 景點進場：</strong>直接出示手機 QR Code 掃描。</p>
+        </div>
+    </div>
+
+    <div id="day1" class="tab-content">
+        <div class="card">
+            <h3>Day 1：抵達京都車站</h3>
+            <div class="timeline-item">
+                <strong>15:00 關西機場 → 京都</strong><br>
+                <span class="tag tag-kkday">使用 KKday 兌換</span> <span class="price">約 1,900円</span><br>
+                車種：JR 特急 HARUKA (80分)。
+            </div>
+            <div class="timeline-item">
+                <strong>17:30 京都飯店入住</strong><br>
+                住宿：京都車站步行 5 分鐘內為首選。
+            </div>
+        </div>
+    </div>
+
+    <div id="day2" class="tab-content">
+        <div class="card">
+            <h3>Day 2：伏見稻荷 & 清水寺</h3>
+            <div class="timeline-item">
+                <strong>09:00 伏見稻荷大社</strong><br>
+                <span class="tag tag-icoca">刷 ICOCA 感應</span> <span class="price">150円</span><br>
+                JR 奈良線 (京都 → 稻荷)。
+            </div>
+            <div class="timeline-item">
+                <strong>13:00 清水寺 / 祇園</strong><br>
+                <span class="tag tag-icoca">刷 ICOCA 感應</span> <span class="price">220円</span><br>
+                京阪電車 (伏見稻荷 → 清水五條)。
+            </div>
+            <div class="timeline-item">
+                <strong>14:00 清水寺門票</strong><br>
+                <span class="tag tag-cash">現場購票</span> <span class="price">400円</span>
+            </div>
+        </div>
+    </div>
+
+    <div id="day3" class="tab-content">
+        <div class="card">
+            <h3>Day 3：嵐山 → 移動至大阪</h3>
+            <div class="highlight-box">💡 今天移動住宿，建議早上先將行李寄存在車站。</div>
+            <div class="timeline-item">
+                <strong>09:30 金閣寺</strong><br>
+                <span class="tag tag-icoca">刷 ICOCA 感應</span> <span class="price">230円</span><br>
+                市巴士 205 號 (約40分鐘)。
+            </div>
+            <div class="timeline-item">
+                <strong>13:00 嵐山渡月橋</strong><br>
+                <span class="tag tag-icoca">刷 ICOCA 感應</span> <span class="price">250円</span><br>
+                嵐電 (北野白梅町 → 嵐山)。
+            </div>
+            <div class="timeline-item">
+                <strong>17:00 移動至大阪難波</strong><br>
+                <span class="tag tag-icoca">刷 ICOCA 感應</span> <span class="price">約 650円</span><br>
+                阪急電鐵轉地鐵御堂筋線。
+            </div>
+        </div>
+    </div>
+
+    <div id="day4" class="tab-content">
+        <div class="card">
+            <h3>Day 4：神戶一日遊</h3>
+            <div class="timeline-item">
+                <strong>10:00 生田神社 / 三宮</strong><br>
+                <span class="tag tag-icoca">刷 ICOCA 感應</span> <span class="price">420円</span><br>
+                阪神電車 (大阪難波 → 神戶三宮)。
+            </div>
+            <div class="timeline-item">
+                <strong>15:00 神戶港夜景</strong><br>
+                <span class="tag tag-icoca">刷 ICOCA 感應</span> <span class="price">150円</span><br>
+                神戶臨海樂園 Mosaic 廣場。
+            </div>
+        </div>
+    </div>
+
+    <div id="day5" class="tab-content">
+        <div class="card">
+            <h3>Day 5：大阪經典地標</h3>
+            <div class="timeline-item">
+                <strong>10:00 大阪城天守閣</strong><br>
+                <span class="tag tag-icoca">刷 ICOCA 感應</span> <span class="price">240円</span><br>
+                地鐵 (難波 → 森之宮)。
+            </div>
+            <div class="timeline-item">
+                <strong>15:00 梅田藍天大廈</strong><br>
+                <span class="tag tag-kkday">使用 KKday QR碼</span><br>
+                空中庭園展望台看夕陽。
+            </div>
+            <div class="timeline-item">
+                <strong>19:00 阿倍野展望台</strong><br>
+                <span class="tag tag-kkday">使用 KKday QR碼</span><br>
+                HARUKAS 300 夜景。
+            </div>
+        </div>
+    </div>
+
+    <div id="day6" class="tab-content">
+        <div class="card">
+            <h3>Day 6：最後採買 → 返回機場</h3>
+            <div class="highlight-box">
+                <strong>🛅 行李寄放：</strong> 南海難波站 2F 或 J-Market (約 700-1000円)。
+            </div>
+            <div class="timeline-item">
+                <strong>10:00 黑門市場 / 心齋橋</strong><br>
+                最後衝刺。步行即可抵達。
+            </div>
+            <div class="timeline-item">
+                <strong>15:00 難波站 → 關西機場</strong><br>
+                <span class="tag tag-kkday">KKday 或 櫃台買票</span> <span class="price">1,490円</span><br>
+                南海電鐵 特急 Rapi:t (38分鐘)。
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function showTab(evt, tabId) {
+        var i, content, btns;
+        content = document.getElementsByClassName("tab-content");
+        for (i = 0; i < content.length; i++) { content[i].classList.remove("active"); }
+        btns = document.getElementsByClassName("nav-btn");
+        for (i = 0; i < btns.length; i++) { btns[i].classList.remove("active"); }
+        document.getElementById(tabId).classList.add("active");
+        evt.currentTarget.classList.add("active");
+        window.scrollTo(0,0);
+    }
+</script>
+
+</body>
+</html>
