@@ -3,211 +3,181 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 京阪神自由行全攻略 - 59478 專屬</title>
+    <title>2026 京阪自由行全攻略 - 59478 專屬</title>
     <style>
-        :root { 
-            --primary: #2c3e50; 
-            --secondary: #e74c3c; 
-            --accent: #3498db; 
-            --bg: #f4f7f6; 
-            --law-bg: rgba(255, 248, 225, 0.95); 
-            --hotel-bg: #e8f5e9;
-        }
+        :root { --primary: #2c3e50; --secondary: #e74c3c; --accent: #3498db; --bg: #f4f7f6; --law-bg: #fff8e1; --success: #27ae60; }
         body { font-family: "PingFang TC", "Microsoft JhengHei", sans-serif; margin: 0; background: var(--bg); color: #333; line-height: 1.6; }
-        
-        header { 
-            background: rgba(44, 62, 80, 0.95); 
-            color: white; 
-            text-align: center; 
-            padding: 20px 10px; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            backdrop-filter: blur(8px);
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .nav-scroll { 
-            display: flex; 
-            overflow-x: auto; 
-            background: rgba(255, 255, 255, 0.9); 
-            padding: 10px; 
-            gap: 8px; 
-            border-bottom: 2px solid #ddd; 
-            position: sticky; 
-            top: 82px; 
-            z-index: 999; 
-            backdrop-filter: blur(5px);
-        }
-
+        header { background: var(--primary); color: white; text-align: center; padding: 20px 10px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .nav-scroll { display: flex; overflow-x: auto; background: white; padding: 10px; gap: 8px; border-bottom: 2px solid #ddd; position: sticky; top: 82px; z-index: 999; }
         .nav-btn { white-space: nowrap; padding: 10px 18px; border: none; background: #eee; border-radius: 20px; cursor: pointer; font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
-        .nav-btn.active { background: var(--secondary); color: white; transform: scale(1.05); }
-
-        .container { 
-            position: relative;
-            min-height: calc(100vh - 150px);
-            padding: 15px; 
-            max-width: 700px; 
-            margin: 0 auto; 
-            padding-bottom: 100px; 
-        }
-
-        .page-background {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.25; 
-            background-size: cover;
-            background-position: center;
-            transition: background-image 1s ease-in-out;
-            background-color: #2c3e50;
-        }
-
-        .tab-content { display: none; animation: fadeIn 0.5s ease-out; position: relative; z-index: 1; }
+        .nav-btn.active { background: var(--secondary); color: white; }
+        .container { padding: 15px; max-width: 800px; margin: 0 auto; padding-bottom: 50px; }
+        .tab-content { display: none; animation: fadeIn 0.4s; }
         .tab-content.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        .card { 
-            background: rgba(255, 255, 255, 0.96); 
-            border-radius: 12px; 
-            padding: 18px; 
-            margin-bottom: 15px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-            border-left: 6px solid var(--primary); 
-        }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
+        .card { background: white; border-radius: 12px; padding: 18px; margin-bottom: 15px; box-shadow: 0 4px 12px rgba(0,0,0,0.08); border-left: 6px solid var(--primary); }
         .law-card { background: var(--law-bg); border-left: 6px solid #f1c40f; }
-        .hotel-card { background: var(--hotel-bg); border-left: 6px solid #2e7d32; }
-        
-        .highlight-box { background: rgba(227, 242, 253, 0.95); border: 1px solid #bbdefb; padding: 12px; border-radius: 8px; font-size: 0.9rem; margin-bottom: 15px; color: #1565c0; }
+        .info-card { border-left: 6px solid var(--accent); }
+        .highlight-box { background: #e3f2fd; border: 1px solid #bbdefb; padding: 12px; border-radius: 8px; font-size: 0.9rem; margin-bottom: 15px; color: #1565c0; }
         .timeline-item { position: relative; padding-left: 25px; margin-bottom: 20px; border-left: 2px solid #ddd; }
         .timeline-item::before { content: ""; position: absolute; left: -8px; top: 5px; width: 14px; height: 14px; background: var(--accent); border-radius: 50%; }
-        
         .tag { display: inline-block; padding: 3px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; margin: 4px 2px; border: 1px solid transparent; }
         .tag-kkday { background: #ffefd5; color: #e67e22; border-color: #e67e22; }
         .tag-icoca { background: #e0f2f1; color: #00897b; border-color: #00897b; }
-        .tag-cash { background: #f3e5f5; color: #8e24aa; border-color: #8e24aa; }
-        .tag-taxi { background: #e3f2fd; color: #1976d2; border-color: #1976d2; }
-        .price { color: var(--secondary); font-weight: bold; }
-
-        .address-box { font-size: 0.85rem; color: #666; background: #f9f9f9; padding: 8px; border-radius: 4px; margin: 10px 0; border: 1px dashed #ccc; }
+        .tag-walk { background: #f5f5f5; color: #616161; border-color: #bdbdbd; }
+        .price { color: var(--secondary); font-weight: bold; font-size: 1rem; }
+        .step-title { font-weight: bold; color: var(--primary); margin-top: 10px; display: block; }
+        h3 { margin-top: 0; color: var(--primary); display: flex; align-items: center; gap: 8px; }
         ul { padding-left: 20px; margin: 5px 0; }
         li { margin-bottom: 8px; }
+        .route-detail { font-size: 0.85rem; color: #666; background: #f9f9f9; padding: 8px; border-radius: 4px; margin-top: 5px; }
     </style>
 </head>
 <body>
 
-<div class="page-background" id="mainBg"></div>
-
 <header>
-    <div style="font-size: 0.8rem; opacity: 0.9;">2026 京阪神攻略：59478 熟男質感版</div>
-    <h2 style="margin: 5px 0;">六天五夜自由行全書</h2>
+    <div style="font-size: 0.8rem; opacity: 0.9;">2026 大阪精華 6D5N：59478 專屬</div>
+    <h2 style="margin: 5px 0;">關西自由行導覽手冊</h2>
 </header>
 
 <div class="nav-scroll" id="navBar">
-    <button class="nav-btn active" onclick="showTab(event, 'airport', 'airport')">✈️ 入境/電池</button>
-    <button class="nav-btn" onclick="showTab(event, 'day1', 'kyoto,station')">D1 京都入住</button>
-    <button class="nav-btn" onclick="showTab(event, 'day2', 'kyoto,temple')">D2 經典京都</button>
-    <button class="nav-btn" onclick="showTab(event, 'day3', 'arashiyama')">D3 嵐山/大阪入住</button>
-    <button class="nav-btn" onclick="showTab(event, 'day4', 'kobe,port')">D4 神戶快閃</button>
-    <button class="nav-btn" onclick="showTab(event, 'day5', 'osaka,castle')">D5 大阪採買</button>
-    <button class="nav-btn" onclick="showTab(event, 'day6', 'airport,train')">D6 輕鬆回程</button>
+    <button class="nav-btn active" onclick="showTab(event, 'notice')">📢 注意事項與票券</button>
+    <button class="nav-btn" onclick="showTab(event, 'day1')">D1 機場→住處</button>
+    <button class="nav-btn" onclick="showTab(event, 'day2')">D2 京都一日遊</button>
+    <button class="nav-btn" onclick="showTab(event, 'day3')">D3 大阪城景點</button>
+    <button class="nav-btn" onclick="showTab(event, 'day4')">D4 通天閣與難波</button>
+    <button class="nav-btn" onclick="showTab(event, 'day5')">D5 黑門與心齋橋</button>
+    <button class="nav-btn" onclick="showTab(event, 'day6')">D6 回程</button>
 </div>
 
 <div class="container">
 
-    <!-- 入境與電池須知 -->
-    <div id="airport" class="tab-content active">
+    <!-- 第一頁：注意事項 -->
+    <div id="notice" class="tab-content active">
         <div class="card law-card">
-            <h3>🔋 行動電源與電池 (2026 嚴格制)</h3>
+            <h3>👗 4月季節穿著建議</h3>
+            <p>4月大阪氣溫約 10°C - 20°C，正值櫻花末期/新綠期。</p>
             <ul>
-                <li><strong>嚴禁托運：</strong>必須隨身，且航程中 6 家台籍航空<strong>禁止充電</strong>。</li>
-                <li><strong>容量標示：</strong>必須有清晰標示。100Wh(約2萬mAh)以下無數量限制。</li>
-                <li><strong>手提液體：</strong>單瓶 <100ml，需裝入 20x20cm 透明夾鏈袋。</li>
+                <li><strong>洋蔥式穿法：</strong>早晚偏涼，白天太陽下舒適。</li>
+                <li><strong>建議：</strong>薄長袖/襯衫 + 防風外套或薄風衣。若要去京都山區(清水寺)，多備一件輕便發熱衣。</li>
             </ul>
         </div>
-        <div class="card">
-            <h3>🎫 票券與儲值 (59478 必備)</h3>
+
+        <div class="card info-card">
+            <h3>🛫 機場流程與快速通關</h3>
+            <span class="step-title">1. 出發前準備 (快速通關)</span>
             <ul>
-                <li><strong>ICOCA：</strong>iPhone 直接 Wallet 加入，超商現金儲值說「Charge」。</li>
-                <li><strong>KKday 預約：</strong>HARUKA 與 南海 Rapi:t 建議先買，掃碼取票最快。</li>
+                <li>註冊 <strong>Visit Japan Web (VJW)</strong>，填寫「入境審查」與「海關申報」。</li>
+                <li>截圖 QR Code，下機後依照指示走「電子申報通道」可極速入境。</li>
+            </ul>
+            <span class="step-title">2. 托運前流程</span>
+            <ul>
+                <li>檢查行動電源(不可托運，須隨身)。</li>
+                <li>液體需裝入 20x20cm 透明夾鏈袋 (單瓶 < 100ml)。</li>
+            </ul>
+        </div>
+
+        <div class="card info-card">
+            <h3>🎫 KKDAY 票券兌換詳細說明</h3>
+            <span class="step-title">A. HARUKA 關西機場特快</span>
+            <ul>
+                <li><strong>地點：</strong>關西機場車站 (JR 綠色售票機)。</li>
+                <li><strong>方式：</strong>掃描 KKday 電子 QR Code + 掃描護照 → 領取實體車票。</li>
+                <li><strong>搭乘：</strong>持票進站，HARUKA 為全車對號座(需於機器劃位)或自由席(4-6車廂)。</li>
+            </ul>
+            <span class="step-title">B. 大阪城天守閣</span>
+            <ul>
+                <li><strong>方式：</strong>直接出示 KKday 電子憑證 QR Code 掃描進場，無需換票。</li>
+                <li><strong>注意：</strong>若排隊人數多，請確認「已持有票券」通道，通常可快速排隊進入。</li>
+            </ul>
+        </div>
+
+        <div class="card info-card">
+            <h3>💳 ICOCA 卡片購買與儲值</h3>
+            <ul>
+                <li><strong>購買：</strong>JR 關西空港站「自動售票機」(藍色機器)。選擇「購入ICOCA」，初次購買通常為 2,000円 (含 500円押金 + 1,500円儲值金)。</li>
+                <li><strong>儲值方式：</strong>
+                    1. 機器：插入卡片 → 點選「チャージ(Charge)」→ 投入現金。
+                    2. 超商：持卡跟店員說「Charge」並出示現金即可。
+                </li>
             </ul>
         </div>
     </div>
 
     <!-- Day 1 -->
     <div id="day1" class="tab-content">
-        <div class="card hotel-card">
-            <h3>🏨 京都首選住宿 (前兩晚)</h3>
-            <p><strong>地址：</strong>Shimogyo ku, Naginatagiricho 211-1, Kyoto</p>
-            <div class="address-box">下京区, 京都, 604-8323 (靠近地鐵四條站)</div>
-            <ul>
-                <li><strong>優勢：</strong>地鐵兩站即達車站，前往嵐山與清水寺的中繼點。</li>
-            </ul>
-        </div>
         <div class="card">
-            <h3>Day 1：抵達京都</h3>
+            <h3>Day 1：抵達與入住 (4/19)</h3>
             <div class="timeline-item">
-                <strong>15:30 關西機場 → 京都車站</strong><br>
-                <span class="tag tag-kkday">使用 HARUKA 票</span> <span class="price">1,900円</span> (80分鐘)
+                <strong>18:00 辦理入境與領票</strong><br>
+                <span class="tag tag-kkday">KKday 兌換</span> 領取 HARUKA 與天守閣票券。
             </div>
             <div class="timeline-item">
-                <strong>17:30 京都車站 → 飯店</strong><br>
-                <span class="tag tag-taxi">建議計程車</span> <span class="price">約 1,000円</span> (10分鐘)<br>
-                40歲的聰明選擇：直接搭小黃送至飯店門口，省去搬行李研究地鐵出口的疲勞。
+                <strong>18:40 關西機場 → 天王寺</strong><br>
+                <span class="tag tag-kkday">HARUKA 票券</span> <span class="price">約 35 分鐘</span><br>
+                <div class="route-detail">搭乘 JR 特急 HARUKA 號往京都方向，在「天王寺站」下車。</div>
             </div>
+            <div class="timeline-item">
+                <strong>19:30 天王寺 → 本町 (住處)</strong><br>
+                <span class="tag tag-icoca">ICOCA</span> <span class="price">240円 / 12 分鐘</span><br>
+                <div class="route-detail">轉乘地鐵「御堂筋線」(紅線) 往梅田方向，在「本町站」下車。</div>
+            </div>
+            <div class="highlight-box">🏠 住處：Chuo-ku, Minamihonmachi 4-2-9。本町站 8 號出口步行約 3 分鐘。</div>
         </div>
     </div>
 
     <!-- Day 2 -->
     <div id="day2" class="tab-content">
         <div class="card">
-            <h3>Day 2：伏見稻荷 & 清水寺</h3>
+            <h3>Day 2：京都經典之旅</h3>
             <div class="timeline-item">
-                <strong>09:00 飯店 → 伏見稻荷</strong><br>
-                從「地鐵四條」搭到「地鐵五條」轉公車或回車站轉 JR。<br>
-                <span class="tag tag-icoca">刷 ICOCA</span> <span class="price">150~220円</span>
+                <strong>08:30 本町站 → 淀屋橋 → 伏見稻荷</strong><br>
+                <span class="tag tag-icoca">ICOCA</span> <span class="price">610円 / 60 分鐘</span><br>
+                <div class="route-detail">1. 地鐵御堂筋線 (本町→淀屋橋) [190円]<br>2. 京阪電車特急 (淀屋橋→丹波橋站轉準急→伏見稻荷站) [420円]</div>
             </div>
             <div class="timeline-item">
-                <strong>13:00 伏見 → 清水寺</strong><br>
-                搭乘京阪電車至「清水五條」步行上山。<br>
-                <span class="tag tag-cash">清水寺門票</span> <span class="price">400円</span>
+                <strong>11:30 伏見稻荷 → 清水寺</strong><br>
+                <span class="tag tag-icoca">ICOCA</span> <span class="price">220円 / 10 分鐘</span><br>
+                <div class="route-detail">搭乘京阪電車至「清水五條站」。</div>
             </div>
             <div class="timeline-item">
-                <strong>18:00 回飯店周邊晚餐</strong><br>
-                飯店位於四條烏丸，步行可達錦市場與大丸百貨，晚餐選擇極多。
+                <strong>清水寺接駁方案</strong><br>
+                <div class="route-detail">
+                    🚶 步行：約 20 分鐘上坡 (體力考驗)。<br>
+                    🚕 計程車：清水五條站外搭乘至清水坂下，費用約 800-1,200円 (4人分擔最划算)。<br>
+                    🚌 巴士：搭市營巴士 206 號至「清水道」，費用 230円。
+                </div>
+            </div>
+            <div class="timeline-item">
+                <strong>15:30 祇園、八坂神社</strong><br>
+                <span class="tag tag-walk">步行</span> <span class="price">免費</span><br>
+                <div class="route-detail">從清水寺沿著二年坂、三年坂步行至八坂神社與祇園。</div>
+            </div>
+            <div class="timeline-item">
+                <strong>18:00 返回大阪</strong><br>
+                <div class="route-detail">從「祇園四條」搭京阪電車回「淀屋橋」，再轉地鐵回「本町」。</div>
             </div>
         </div>
     </div>
 
     <!-- Day 3 -->
     <div id="day3" class="tab-content">
-        <div class="card hotel-card">
-            <h3>🏨 大阪首選住宿 (後三晚)</h3>
-            <p><strong>地址：</strong>Naniwa-ku Nipponbashi 5-18-9, Osaka</p>
-            <div class="address-box">浪速区日本橋 5-18−9 (難波商圈步行圈)</div>
-            <ul>
-                <li><strong>優勢：</strong>採買完直接回飯店放東西，回程步行即達南海難波站。</li>
-            </ul>
-        </div>
         <div class="card">
-            <h3>Day 3：嵐山行程與大阪移動</h3>
+            <h3>Day 3：大坂城與歷史文化</h3>
             <div class="timeline-item">
-                <strong>09:30 飯店 → 嵐山渡月橋</strong><br>
-                從飯店步行 8 分鐘至「阪急烏丸站」搭往嵐山。<br>
-                <span class="tag tag-icoca">刷 ICOCA</span> <span class="price">230円</span>
+                <strong>10:00 本町 → 大阪城公園</strong><br>
+                <span class="tag tag-icoca">ICOCA</span> <span class="price">190円 / 15 分鐘</span><br>
+                <div class="route-detail">地鐵中央線 (本町站 → 森之宮站)。</div>
             </div>
             <div class="timeline-item">
-                <strong>16:00 京都飯店領行李 → 大阪</strong><br>
-                搭乘地鐵至京都車站轉 JR 或從烏丸搭阪急直達大阪梅田。<br>
-                <span class="tag tag-icoca">刷 ICOCA</span> <span class="price">約 600円</span>
+                <strong>11:00 天守閣</strong><br>
+                <span class="tag tag-kkday">KKday 掃碼進場</span><br>
+                <div class="route-detail">參觀天守閣內部，俯瞰大阪市景。</div>
             </div>
             <div class="timeline-item">
-                <strong>18:30 大阪飯店 Check-in</strong><br>
-                <span class="tag tag-taxi">建議地鐵或計程車</span><br>
-                抵達難波後，這間飯店就在日本橋電器街尾端，生活感極佳。
+                <strong>14:00 難波八阪神社 (獅子殿)</strong><br>
+                <span class="tag tag-icoca">ICOCA</span> <span class="price">190円 / 20 分鐘</span><br>
+                <div class="route-detail">地鐵御堂筋線 (森之宮→本町轉線→難波站)。</div>
             </div>
         </div>
     </div>
@@ -215,19 +185,16 @@
     <!-- Day 4 -->
     <div id="day4" class="tab-content">
         <div class="card">
-            <h3>Day 4：神戶風情一日遊</h3>
+            <h3>Day 4：通天閣與道頓堀</h3>
             <div class="timeline-item">
-                <strong>10:30 日本橋 → 神戶三宮</strong><br>
-                搭乘阪神難波線直通特急，免轉車直達三宮。<br>
-                <span class="tag tag-icoca">刷 ICOCA</span> <span class="price">420円</span> (50分鐘)
+                <strong>11:00 通天閣 (新世界)</strong><br>
+                <span class="tag tag-icoca">ICOCA</span> <span class="price">190円 / 15 分鐘</span><br>
+                <div class="route-detail">地鐵堺筋線 (堺筋本町 → 惠美須町站)。</div>
             </div>
             <div class="timeline-item">
-                <strong>15:00 生田神社 / 北野異人館</strong><br>
-                感受神戶異國氣氛。
-            </div>
-            <div class="timeline-item">
-                <strong>18:30 神戶港夜景</strong><br>
-                欣賞神戶塔，隨後搭車回大阪日本橋。
+                <strong>15:00 難波、道頓堀</strong><br>
+                <span class="tag tag-icoca">ICOCA</span> <span class="price">190円</span><br>
+                <div class="route-detail">搭地鐵或步行約 15 分鐘至難波地區，看格力高看板。</div>
             </div>
         </div>
     </div>
@@ -235,41 +202,36 @@
     <!-- Day 5 -->
     <div id="day5" class="tab-content">
         <div class="card">
-            <h3>Day 5：大阪經典與購物衝刺</h3>
+            <h3>Day 5：黑門市場與最後購物</h3>
             <div class="timeline-item">
-                <strong>10:00 大阪城天守閣</strong><br>
-                <span class="tag tag-icoca">刷 ICOCA</span> <span class="price">240円</span>
+                <strong>09:30 黑門市場 (早餐)</strong><br>
+                <span class="tag tag-icoca">ICOCA</span> <span class="price">190円</span><br>
+                <div class="route-detail">地鐵千日前線至「日本橋站」。享受海鮮與神戶牛。</div>
             </div>
             <div class="timeline-item">
-                <strong>15:00 心齋橋 / 難波高島屋</strong><br>
-                進行最後藥妝與精品大採買。因為飯店在 **日本橋 5-18-9**，買完隨時可以走路回飯店放東西。
-            </div>
-            <div class="timeline-item">
-                <strong>19:00 黑門市場晚餐 / 玉出超市補貨</strong><br>
-                飯店對面就是採買天堂，買完直接拎回房間。
+                <strong>13:00 心齋橋筋商店街</strong><br>
+                <span class="tag tag-walk">步行</span><br>
+                <div class="route-detail">從日本橋步行至心齋橋，藥妝與潮流服飾採買。</div>
             </div>
         </div>
     </div>
 
     <!-- Day 6 -->
     <div id="day6" class="tab-content">
-        <div class="card highlight-box">
-            <strong>🌟 59478 輕鬆回程心法：</strong><br>
-            這間飯店離南海難波站步行約 10 分鐘，不需要再擠地鐵，體力消耗降至最低。
-        </div>
         <div class="card">
-            <h3>Day 6：黑門市場最後巡禮</h3>
+            <h3>Day 6：回程與採買 (4/24)</h3>
             <div class="timeline-item">
-                <strong>10:00 退房寄放行李 → 黑門市場</strong><br>
-                步行 8 分鐘即達黑門市場，吃最後一餐和牛。
+                <strong>12:00 飯店退房與行李寄放</strong><br>
+                <div class="route-detail">可先存放在飯店，或前往「難波站」寄放。</div>
             </div>
             <div class="timeline-item">
-                <strong>14:00 領行李 → 南海難波站</strong><br>
-                步行直達車站，優雅前往機場。
+                <strong>17:00 難波站 → 關西機場</strong><br>
+                <span class="tag tag-icoca">ICOCA / 現場買票</span> <span class="price">970-1,490円</span><br>
+                <div class="route-detail">建議搭乘「南海電鐵」：<br>1. 空港急行 (970円，45分鐘)<br>2. 特急 Rapi:t (1,490円，38分鐘，全對號座舒適)。</div>
             </div>
             <div class="timeline-item">
-                <strong>15:30 抵達關西機場</strong><br>
-                <span class="tag tag-kkday">南海 Rapi:t 特急</span> <span class="price">1,490円</span> (38分鐘)
+                <strong>18:30 抵達機場辦理登機</strong><br>
+                <div class="route-detail">21:05 班機，建議提早 2.5 小時抵達。</div>
             </div>
         </div>
     </div>
@@ -277,31 +239,16 @@
 </div>
 
 <script>
-    const bgElement = document.getElementById('mainBg');
-
-    function updateBackground(keyword) {
-        const randomNum = Math.floor(Math.random() * 1000);
-        // 背景鎖定日本風景
-        bgElement.style.backgroundImage = `url('https://loremflickr.com/1600/900/japan,${keyword}?sig=${randomNum}')`;
-    }
-
-    function showTab(evt, tabId, keyword) {
+    function showTab(evt, tabId) {
         var i, content, btns;
         content = document.getElementsByClassName("tab-content");
         for (i = 0; i < content.length; i++) { content[i].classList.remove("active"); }
         btns = document.getElementsByClassName("nav-btn");
         for (i = 0; i < btns.length; i++) { btns[i].classList.remove("active"); }
-        
         document.getElementById(tabId).classList.add("active");
-        if(evt) evt.currentTarget.classList.add("active");
-        
-        updateBackground(keyword);
-        window.scrollTo(0,0);
+        evt.currentTarget.classList.add("active");
+        window.scrollTo({ top: 0, behavior: 'smooth' });
     }
-
-    window.onload = () => {
-        updateBackground('airport');
-    };
 </script>
 
 </body>
