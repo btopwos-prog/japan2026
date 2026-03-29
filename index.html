@@ -7,8 +7,8 @@
     <style>
         :root { --primary: #2c3e50; --secondary: #e74c3c; --accent: #3498db; --bg: #f4f7f6; --law-bg: #fff8e1; --success: #27ae60; }
         body { font-family: "PingFang TC", "Microsoft JhengHei", sans-serif; margin: 0; background: var(--bg); color: #333; line-height: 1.6; }
-        header { background: var(--primary); color: white; text-align: center; padding: 20px 10px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
-        .nav-scroll { display: flex; overflow-x: auto; background: white; padding: 10px; gap: 8px; border-bottom: 2px solid #ddd; position: sticky; top: 82px; z-index: 999; }
+        header { background: var(--primary); color: white; text-align: center; padding: 25px 10px; position: sticky; top: 0; z-index: 1000; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .nav-scroll { display: flex; overflow-x: auto; background: white; padding: 10px; gap: 8px; border-bottom: 2px solid #ddd; position: sticky; top: 92px; z-index: 999; }
         .nav-btn { white-space: nowrap; padding: 10px 18px; border: none; background: #eee; border-radius: 20px; cursor: pointer; font-weight: bold; font-size: 0.9rem; transition: 0.3s; }
         .nav-btn.active { background: var(--secondary); color: white; }
         .container { padding: 15px; max-width: 800px; margin: 0 auto; padding-bottom: 50px; }
@@ -26,80 +26,84 @@
         .tag-icoca { background: #e0f2f1; color: #00897b; border-color: #00897b; }
         .tag-walk { background: #f5f5f5; color: #616161; border-color: #bdbdbd; }
         .price { color: var(--secondary); font-weight: bold; font-size: 1rem; }
-        .step-title { font-weight: bold; color: var(--primary); margin-top: 10px; display: block; }
+        .step-title { font-weight: bold; color: var(--primary); margin-top: 12px; display: block; border-bottom: 1px solid #eee; padding-bottom: 4px; }
         h3 { margin-top: 0; color: var(--primary); display: flex; align-items: center; gap: 8px; }
         ul { padding-left: 20px; margin: 5px 0; }
         li { margin-bottom: 8px; }
-        .route-detail { font-size: 0.85rem; color: #666; background: #f9f9f9; padding: 8px; border-radius: 4px; margin-top: 5px; }
+        .route-detail { font-size: 0.85rem; color: #444; background: #f0f4f8; padding: 10px; border-radius: 6px; margin-top: 8px; border: 1px solid #d1d9e6; }
+        .important { color: #e74c3c; font-weight: bold; }
     </style>
 </head>
 <body>
 
 <header>
     <div style="font-size: 0.8rem; opacity: 0.9;">2026 大阪精華 6D5N：59478 專屬</div>
-    <h2 style="margin: 5px 0;">關西自由行導覽手冊</h2>
+    <h2 style="margin: 5px 0;">關西自由行導覽全攻略</h2>
 </header>
 
 <div class="nav-scroll" id="navBar">
-    <button class="nav-btn active" onclick="showTab(event, 'notice')">📢 注意事項與票券</button>
-    <button class="nav-btn" onclick="showTab(event, 'day1')">D1 機場→住處</button>
-    <button class="nav-btn" onclick="showTab(event, 'day2')">D2 京都一日遊</button>
-    <button class="nav-btn" onclick="showTab(event, 'day3')">D3 大阪城景點</button>
-    <button class="nav-btn" onclick="showTab(event, 'day4')">D4 通天閣與難波</button>
-    <button class="nav-btn" onclick="showTab(event, 'day5')">D5 黑門與心齋橋</button>
-    <button class="nav-btn" onclick="showTab(event, 'day6')">D6 回程</button>
+    <button class="nav-btn active" onclick="showTab(event, 'notice')">📢 第一頁：注意事項</button>
+    <button class="nav-btn" onclick="showTab(event, 'day1')">D1 機場→本町</button>
+    <button class="nav-btn" onclick="showTab(event, 'day2')">D2 京都經典遊</button>
+    <button class="nav-btn" onclick="showTab(event, 'day3')">D3 大坂城地標</button>
+    <button class="nav-btn" onclick="showTab(event, 'day4')">D4 通天閣難波</button>
+    <button class="nav-btn" onclick="showTab(event, 'day5')">D5 黑門心齋橋</button>
+    <button class="nav-btn" onclick="showTab(event, 'day6')">D6 回程/天王寺</button>
 </div>
 
 <div class="container">
 
-    <!-- 第一頁：注意事項 -->
+    <!-- 第一頁：詳細注意事項 -->
     <div id="notice" class="tab-content active">
         <div class="card law-card">
-            <h3>👗 4月季節穿著建議</h3>
-            <p>4月大阪氣溫約 10°C - 20°C，正值櫻花末期/新綠期。</p>
+            <h3>👗 4月季節穿著與住處</h3>
+            <p><strong>住處：</strong>大阪府大阪市中央區南本町4-2-9 (+81 6-6258-8911)</p>
             <ul>
-                <li><strong>洋蔥式穿法：</strong>早晚偏涼，白天太陽下舒適。</li>
-                <li><strong>建議：</strong>薄長袖/襯衫 + 防風外套或薄風衣。若要去京都山區(清水寺)，多備一件輕便發熱衣。</li>
+                <li><strong>氣溫：</strong>10°C - 20°C。早晚溫差極大。</li>
+                <li><strong>建議：</strong>薄長袖為主，外加一件防風保暖外套。4月風大時體感偏冷，建議備妥圍巾或輕便發熱衣。</li>
             </ul>
         </div>
 
         <div class="card info-card">
-            <h3>🛫 機場流程與快速通關</h3>
-            <span class="step-title">1. 出發前準備 (快速通關)</span>
+            <h3>🛫 機場通關與行李流程</h3>
+            <span class="step-title">1. 出發前準備：快速通關</span>
             <ul>
-                <li>註冊 <strong>Visit Japan Web (VJW)</strong>，填寫「入境審查」與「海關申報」。</li>
-                <li>截圖 QR Code，下機後依照指示走「電子申報通道」可極速入境。</li>
+                <li>註冊 <strong>Visit Japan Web (VJW)</strong>，完成「入境審查」及「海關申報」。</li>
+                <li><strong>截圖：</strong>一定要將產出的 QR Code 截圖存檔，下機後依照藍色指示牌走「電子申報通道」。</li>
             </ul>
             <span class="step-title">2. 托運前流程</span>
             <ul>
-                <li>檢查行動電源(不可托運，須隨身)。</li>
-                <li>液體需裝入 20x20cm 透明夾鏈袋 (單瓶 < 100ml)。</li>
+                <li><strong>行動電源：</strong>嚴禁托運，必須隨身攜帶。</li>
+                <li><strong>液體：</strong>手提單瓶 < 100ml，需裝入20x20cm透明夾鏈袋。托運單瓶 < 500ml。</li>
+                <li><strong>電捲棒：</strong>若電池不可拆卸，日本海關嚴禁攜帶（不論托運或隨身）。</li>
             </ul>
         </div>
 
         <div class="card info-card">
-            <h3>🎫 KKDAY 票券兌換詳細說明</h3>
-            <span class="step-title">A. HARUKA 關西機場特快</span>
+            <h3>🎫 KKDAY 票券兌換方式</h3>
+            <span class="step-title">A. HARUKA 關西機場特快 (來回票)</span>
             <ul>
-                <li><strong>地點：</strong>關西機場車站 (JR 綠色售票機)。</li>
-                <li><strong>方式：</strong>掃描 KKday 電子 QR Code + 掃描護照 → 領取實體車票。</li>
-                <li><strong>搭乘：</strong>持票進站，HARUKA 為全車對號座(需於機器劃位)或自由席(4-6車廂)。</li>
+                <li><strong>地點：</strong>機場車站「JR 綠色售票機」。</li>
+                <li><strong>操作：</strong>點選螢幕「QR Code 兌換」→ 掃描 KKday 憑證 → 掃描護照 → 領取實體票。</li>
+                <li><strong>劃位：</strong>領到實體票後，可在機器點選「指定席預約」劃位，或直接搭乘 4-6 車廂的自由席。</li>
             </ul>
             <span class="step-title">B. 大阪城天守閣</span>
             <ul>
-                <li><strong>方式：</strong>直接出示 KKday 電子憑證 QR Code 掃描進場，無需換票。</li>
-                <li><strong>注意：</strong>若排隊人數多，請確認「已持有票券」通道，通常可快速排隊進入。</li>
+                <li><strong>兌換：</strong>無需去櫃檯排隊。直接在天守閣入口出示手機 KKday QR Code，由工作人員掃描後直接進入。</li>
             </ul>
         </div>
 
         <div class="card info-card">
-            <h3>💳 ICOCA 卡片購買與儲值</h3>
+            <h3>💳 ICOCA 購買與儲值操作</h3>
+            <span class="step-title">購買位置：機場 JR 站藍色機器</span>
             <ul>
-                <li><strong>購買：</strong>JR 關西空港站「自動售票機」(藍色機器)。選擇「購入ICOCA」，初次購買通常為 2,000円 (含 500円押金 + 1,500円儲值金)。</li>
-                <li><strong>儲值方式：</strong>
-                    1. 機器：插入卡片 → 點選「チャージ(Charge)」→ 投入現金。
-                    2. 超商：持卡跟店員說「Charge」並出示現金即可。
-                </li>
+                <li>機台上有「購入 ICOCA」按鈕。</li>
+                <li>費用：2,000円（內含 500円押金 + 1,500円可用餘額）。</li>
+            </ul>
+            <span class="step-title">儲值方式 (Charge)</span>
+            <ul>
+                <li><strong>機台：</strong>將卡片放入，選擇「チャージ(Charge)」，投入現金（1,000円起）。</li>
+                <li><strong>超商：</strong>持卡給店員看，說「Charge (恰吉)」，並給現金即可。</li>
             </ul>
         </div>
     </div>
@@ -107,55 +111,56 @@
     <!-- Day 1 -->
     <div id="day1" class="tab-content">
         <div class="card">
-            <h3>Day 1：抵達與入住 (4/19)</h3>
+            <h3>Day 1：機場抵達與本町入住 (4/19)</h3>
             <div class="timeline-item">
                 <strong>18:00 辦理入境與領票</strong><br>
-                <span class="tag tag-kkday">KKday 兌換</span> 領取 HARUKA 與天守閣票券。
+                在機場完成上述 KKday 與 ICOCA 的領取。
             </div>
             <div class="timeline-item">
-                <strong>18:40 關西機場 → 天王寺</strong><br>
-                <span class="tag tag-kkday">HARUKA 票券</span> <span class="price">約 35 分鐘</span><br>
-                <div class="route-detail">搭乘 JR 特急 HARUKA 號往京都方向，在「天王寺站」下車。</div>
+                <strong>18:40 關西機場 → 天王寺 (HARUKA)</strong><br>
+                <span class="tag tag-kkday">使用 HARUKA 票</span> <span class="price">約 35 分鐘</span><br>
+                <div class="route-detail">搭乘 JR 特急 HARUKA，在「天王寺站」下車（這是回程也要用的車站）。</div>
             </div>
             <div class="timeline-item">
                 <strong>19:30 天王寺 → 本町 (住處)</strong><br>
-                <span class="tag tag-icoca">ICOCA</span> <span class="price">240円 / 12 分鐘</span><br>
-                <div class="route-detail">轉乘地鐵「御堂筋線」(紅線) 往梅田方向，在「本町站」下車。</div>
+                <span class="tag tag-icoca">刷 ICOCA</span> <span class="price">240円 / 12 分鐘</span><br>
+                <div class="route-detail">
+                    從 JR 改札口出站，跟隨指標轉乘<strong>地鐵御堂筋線 (紅線)</strong>。<br>
+                    <strong>起點：</strong>天王寺 (M23) → <strong>終點：</strong>本町 (M18)。
+                </div>
             </div>
-            <div class="highlight-box">🏠 住處：Chuo-ku, Minamihonmachi 4-2-9。本町站 8 號出口步行約 3 分鐘。</div>
+            <div class="highlight-box">🏠 住處：本町站 8 號出口步行約 3 分鐘即達。</div>
         </div>
     </div>
 
     <!-- Day 2 -->
     <div id="day2" class="tab-content">
         <div class="card">
-            <h3>Day 2：京都經典之旅</h3>
+            <h3>Day 2：京都雙勝景：伏見與清水</h3>
             <div class="timeline-item">
-                <strong>08:30 本町站 → 淀屋橋 → 伏見稻荷</strong><br>
-                <span class="tag tag-icoca">ICOCA</span> <span class="price">610円 / 60 分鐘</span><br>
-                <div class="route-detail">1. 地鐵御堂筋線 (本町→淀屋橋) [190円]<br>2. 京阪電車特急 (淀屋橋→丹波橋站轉準急→伏見稻荷站) [420円]</div>
-            </div>
-            <div class="timeline-item">
-                <strong>11:30 伏見稻荷 → 清水寺</strong><br>
-                <span class="tag tag-icoca">ICOCA</span> <span class="price">220円 / 10 分鐘</span><br>
-                <div class="route-detail">搭乘京阪電車至「清水五條站」。</div>
-            </div>
-            <div class="timeline-item">
-                <strong>清水寺接駁方案</strong><br>
+                <strong>08:30 本町 → 伏見稻荷</strong><br>
+                <span class="tag tag-icoca">刷 ICOCA</span> <span class="price">610円 / 約 1 小時</span><br>
                 <div class="route-detail">
-                    🚶 步行：約 20 分鐘上坡 (體力考驗)。<br>
-                    🚕 計程車：清水五條站外搭乘至清水坂下，費用約 800-1,200円 (4人分擔最划算)。<br>
-                    🚌 巴士：搭市營巴士 206 號至「清水道」，費用 230円。
+                    1. 地鐵御堂筋線：本町 → 淀屋橋 (190円)。<br>
+                    2. 京阪電車：淀屋橋 → 伏見稻荷站 (420円)。
                 </div>
             </div>
             <div class="timeline-item">
-                <strong>15:30 祇園、八坂神社</strong><br>
-                <span class="tag tag-walk">步行</span> <span class="price">免費</span><br>
-                <div class="route-detail">從清水寺沿著二年坂、三年坂步行至八坂神社與祇園。</div>
+                <strong>11:30 伏見稻荷 → 清水五條</strong><br>
+                <span class="tag tag-icoca">刷 ICOCA</span> <span class="price">220円</span><br>
+                <div class="route-detail">搭乘京阪電車往出町柳方向，至「清水五條站」下車。</div>
             </div>
             <div class="timeline-item">
-                <strong>18:00 返回大阪</strong><br>
-                <div class="route-detail">從「祇園四條」搭京阪電車回「淀屋橋」，再轉地鐵回「本町」。</div>
+                <strong>清水寺接駁詳細 (建議方案)</strong><br>
+                <div class="route-detail">
+                    🚕 <strong>計程車 (激推)：</strong>清水五條站外很多計程車，搭至清水坂下費用約 800-1,100円，4人分擔僅 200-300円，省下 20 分鐘上坡體力。<br>
+                    🚌 <strong>巴士：</strong>搭市巴士 206 號至「清水道」下車 (230円)。
+                </div>
+            </div>
+            <div class="timeline-item">
+                <strong>15:00 二年坂、三年坂、八坂神社、祇園</strong><br>
+                <span class="tag tag-walk">步行</span> <span class="price">免費</span><br>
+                <div class="route-detail">從清水寺順著人潮向下走，會經過所有老街景點，最後抵達八坂神社與祇園。</div>
             </div>
         </div>
     </div>
@@ -163,21 +168,21 @@
     <!-- Day 3 -->
     <div id="day3" class="tab-content">
         <div class="card">
-            <h3>Day 3：大坂城與歷史文化</h3>
+            <h3>Day 3：大坂城歷史與獅子神社</h3>
             <div class="timeline-item">
-                <strong>10:00 本町 → 大阪城公園</strong><br>
-                <span class="tag tag-icoca">ICOCA</span> <span class="price">190円 / 15 分鐘</span><br>
-                <div class="route-detail">地鐵中央線 (本町站 → 森之宮站)。</div>
+                <strong>10:00 本町 → 森之宮 (大阪城公園)</strong><br>
+                <span class="tag tag-icoca">刷 ICOCA</span> <span class="price">190円</span><br>
+                <div class="route-detail">起點：本町 (C16) → 終點：森之宮 (C19)，搭乘地鐵中央線 (綠線)。</div>
             </div>
             <div class="timeline-item">
                 <strong>11:00 天守閣</strong><br>
-                <span class="tag tag-kkday">KKday 掃碼進場</span><br>
-                <div class="route-detail">參觀天守閣內部，俯瞰大阪市景。</div>
+                <span class="tag tag-kkday">出示手機掃碼</span><br>
+                <div class="route-detail">從森之宮站穿過公園步行至天守閣約 15 分鐘。</div>
             </div>
             <div class="timeline-item">
-                <strong>14:00 難波八阪神社 (獅子殿)</strong><br>
-                <span class="tag tag-icoca">ICOCA</span> <span class="price">190円 / 20 分鐘</span><br>
-                <div class="route-detail">地鐵御堂筋線 (森之宮→本町轉線→難波站)。</div>
+                <strong>15:00 難波八阪神社</strong><br>
+                <span class="tag tag-icoca">刷 ICOCA</span> <span class="price">190円</span><br>
+                <div class="route-detail">地鐵御堂筋線至「難波站」，步行約 6 分鐘到神社看巨大獅子殿。</div>
             </div>
         </div>
     </div>
@@ -185,16 +190,16 @@
     <!-- Day 4 -->
     <div id="day4" class="tab-content">
         <div class="card">
-            <h3>Day 4：通天閣與道頓堀</h3>
+            <h3>Day 4：通天閣展望與難波道頓堀</h3>
             <div class="timeline-item">
                 <strong>11:00 通天閣 (新世界)</strong><br>
-                <span class="tag tag-icoca">ICOCA</span> <span class="price">190円 / 15 分鐘</span><br>
-                <div class="route-detail">地鐵堺筋線 (堺筋本町 → 惠美須町站)。</div>
+                <span class="tag tag-icoca">刷 ICOCA</span> <span class="price">190円</span><br>
+                <div class="route-detail">起點：堺筋本町 (K15) → 終點：惠美須町 (K18)，搭乘地鐵堺筋線 (棕線)。</div>
             </div>
             <div class="timeline-item">
-                <strong>15:00 難波、道頓堀</strong><br>
-                <span class="tag tag-icoca">ICOCA</span> <span class="price">190円</span><br>
-                <div class="route-detail">搭地鐵或步行約 15 分鐘至難波地區，看格力高看板。</div>
+                <strong>15:00 難波、道頓堀 (美食/看板)</strong><br>
+                <span class="tag tag-walk">步行</span><br>
+                <div class="route-detail">從新世界慢慢散步至難波地區，約 15-20 分鐘，沿途可逛電器街。</div>
             </div>
         </div>
     </div>
@@ -202,16 +207,16 @@
     <!-- Day 5 -->
     <div id="day5" class="tab-content">
         <div class="card">
-            <h3>Day 5：黑門市場與最後購物</h3>
+            <h3>Day 5：黑門市場早餐與心齋橋購物</h3>
             <div class="timeline-item">
-                <strong>09:30 黑門市場 (早餐)</strong><br>
-                <span class="tag tag-icoca">ICOCA</span> <span class="price">190円</span><br>
-                <div class="route-detail">地鐵千日前線至「日本橋站」。享受海鮮與神戶牛。</div>
+                <strong>09:30 黑門市場</strong><br>
+                <span class="tag tag-icoca">刷 ICOCA</span> <span class="price">190円</span><br>
+                <div class="route-detail">起點：本町站 → 終點：日本橋站 (S17/K17)。</div>
             </div>
             <div class="timeline-item">
                 <strong>13:00 心齋橋筋商店街</strong><br>
                 <span class="tag tag-walk">步行</span><br>
-                <div class="route-detail">從日本橋步行至心齋橋，藥妝與潮流服飾採買。</div>
+                <div class="route-detail">從黑門市場步行至心齋橋只需 10 分鐘，開始最後的大採買。</div>
             </div>
         </div>
     </div>
@@ -219,19 +224,34 @@
     <!-- Day 6 -->
     <div id="day6" class="tab-content">
         <div class="card">
-            <h3>Day 6：回程與採買 (4/24)</h3>
-            <div class="timeline-item">
-                <strong>12:00 飯店退房與行李寄放</strong><br>
-                <div class="route-detail">可先存放在飯店，或前往「難波站」寄放。</div>
+            <h3>Day 6：最後採買與天王寺回程 (4/24)</h3>
+            <div class="highlight-box">
+                <span class="important">⚠️ 關鍵提醒：</span>因為您購買的是 HARUKA 來回票，回程必須回到有停靠的「天王寺站」搭乘，才能發揮票券最大價值。
             </div>
             <div class="timeline-item">
-                <strong>17:00 難波站 → 關西機場</strong><br>
-                <span class="tag tag-icoca">ICOCA / 現場買票</span> <span class="price">970-1,490円</span><br>
-                <div class="route-detail">建議搭乘「南海電鐵」：<br>1. 空港急行 (970円，45分鐘)<br>2. 特急 Rapi:t (1,490円，38分鐘，全對號座舒適)。</div>
+                <strong>12:00 退房、飯店存放行李</strong><br>
+                本町附近還有許多藥妝店可補貨。
             </div>
             <div class="timeline-item">
-                <strong>18:30 抵達機場辦理登機</strong><br>
-                <div class="route-detail">21:05 班機，建議提早 2.5 小時抵達。</div>
+                <strong>17:30 本町 → 天王寺</strong><br>
+                <span class="tag tag-icoca">刷 ICOCA</span> <span class="price">240円 / 12 分鐘</span><br>
+                <div class="route-detail">
+                    地鐵御堂筋線 (紅線) 直達天王寺站。<br>
+                    <strong>注意：</strong>請預留一些時間在天王寺站從地鐵走到 JR 站體。
+                </div>
+            </div>
+            <div class="timeline-item">
+                <strong>18:00 天王寺 → 關西機場 (HARUKA)</strong><br>
+                <span class="tag tag-kkday">使用 HARUKA 回程實體票</span> <span class="price">約 35 分鐘</span><br>
+                <div class="route-detail">
+                    1. 使用第一天換好的實體票進站。<br>
+                    2. 若想坐得更舒服，可在月台的機器劃位指定席（免費）。<br>
+                    3. 直達機場車站。
+                </div>
+            </div>
+            <div class="timeline-item">
+                <strong>18:45 抵達機場 / 21:05 起飛</strong><br>
+                <div class="route-detail">提前 2 小時抵達機場辦理登機。回程行李若較重，記得在天王寺站搭乘電梯。</div>
             </div>
         </div>
     </div>
